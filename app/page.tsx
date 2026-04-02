@@ -1,5 +1,6 @@
 export default function Home() {
   const year = new Date().getFullYear();
+  const litepaperHref = "/POSI_Litepaper_v1.0.pdf";
 
   return (
     <>
@@ -25,6 +26,14 @@ export default function Home() {
             <a href="#capital">Capital</a>
           </li>
         </ul>
+        <a
+          href={litepaperHref}
+          className="nav-litepaper"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          LITEPAPER <span className="nav-litepaper-square" aria-hidden="true" />
+        </a>
       </nav>
 
       {/* HERO */}
@@ -52,8 +61,13 @@ export default function Home() {
             <a href="#protocol" className="btn-primary">
               Explore the Protocol
             </a>
-            <a href="#capital" className="btn-outline">
-              Capital Structure →
+            <a
+              href={litepaperHref}
+              className="btn-outline"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              DOWNLOAD LITEPAPER
             </a>
           </div>
           <div className="hero-stats">
@@ -76,9 +90,9 @@ export default function Home() {
       {/* PROBLEM */}
       <section id="problem">
         <div className="container">
-          <div className="section-tag">// The Institutional Gap</div>
+          <div className="section-tag">{"// The Institutional Gap"}</div>
           <h2>
-            Distribution utilities aren't failing
+            Distribution utilities aren&apos;t failing
             <br />
             for lack of technology.
           </h2>
@@ -134,7 +148,7 @@ export default function Home() {
       {/* PROTOCOL */}
       <section id="protocol">
         <div className="container">
-          <div className="section-tag">// The POSI Protocol</div>
+          <div className="section-tag">{"// The POSI Protocol"}</div>
           <h2>
             A standardized stewardship protocol,
             <br />
@@ -255,7 +269,7 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section id="how">
         <div className="container">
-          <div className="section-tag">// Mechanism</div>
+          <div className="section-tag">{"// Mechanism"}</div>
           <h2>Protocol + Equity + Chain.</h2>
           <p className="section-lead">
             Three interlocking elements create an enforceable model of
@@ -311,7 +325,7 @@ export default function Home() {
       {/* AUDIENCE */}
       <section id="audience">
         <div className="container">
-          <div className="section-tag">// Who This Is For</div>
+          <div className="section-tag">{"// Who This Is For"}</div>
           <h2>
             Built for two worlds.
             <br />
@@ -331,7 +345,7 @@ export default function Home() {
               <p>
                 POSI is a real-world asset protocol with genuine institutional
                 depth. The onchain attestation registry creates a permanent,
-                public accountability layer — applying blockchain's core value
+                public accountability layer — applying blockchain&apos;s core value
                 proposition (immutability, transparency, verifiability) to
                 critical infrastructure governance in markets where it matters
                 most.
@@ -399,7 +413,7 @@ export default function Home() {
       {/* IMPACT */}
       <section id="impact">
         <div className="container">
-          <div className="section-tag">// Measurable Outcomes</div>
+          <div className="section-tag">{"// Measurable Outcomes"}</div>
           <h2>Stewardship that compounds.</h2>
           <p className="section-lead">
             POSI targets tangible, measurable improvement across the utilities
@@ -461,7 +475,7 @@ export default function Home() {
       {/* CAPITAL */}
       <section id="capital">
         <div className="container">
-          <div className="section-tag">// Capital Structure</div>
+          <div className="section-tag">{"// Capital Structure"}</div>
           <h2>
             Stable-value capital.
             <br />
@@ -564,7 +578,7 @@ export default function Home() {
                 display: "flex",
               }}
             >
-              // Join the Initiative
+              {"// Join the Initiative"}
             </div>
             <h2>
               The institution that delivers electricity
@@ -577,11 +591,19 @@ export default function Home() {
               energy transition is not generation — it is governance.
             </p>
             <div className="cta-buttons">
-              <a href="mailto:posi@posiworks.org" className="btn-primary">
+              <a
+                href="mailto:posi@posiworks.org?subject=POSI%20-%20Contact%20the%20Team&body=Hello%20POSI%20team%2C%0D%0A%0D%0A"
+                className="btn-primary"
+              >
                 Contact the Team
               </a>
-              <a href="#protocol" className="btn-outline">
-                Read the Protocol
+              <a
+                href={litepaperHref}
+                className="btn-outline"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                DOWNLOAD LITEPAPER
               </a>
             </div>
           </div>

@@ -81,6 +81,30 @@
   }
   .nav-cta:hover { background: var(--amber); color: var(--black); }
 
+  .nav-litepaper {
+    grid-column: 3;
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(240,242,245,0.9);
+    text-decoration: none;
+    padding: 0.55rem 0.2rem;
+    transition: color 0.2s;
+  }
+  .nav-litepaper:hover { color: var(--white); }
+  .nav-litepaper-square {
+    width: 10px;
+    height: 10px;
+    background: var(--amber);
+    border-radius: 2px;
+    box-shadow: 0 0 18px rgba(245,166,35,0.35);
+  }
+
   /* --- HERO --- */
   .hero {
     min-height: 100vh;
@@ -631,8 +655,9 @@
   }
 
   @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; grid-template-columns: 1fr; }
+    nav { padding: 1rem 1.5rem; grid-template-columns: 1fr auto; }
     .nav-links { display: none; }
+    .nav-litepaper { grid-column: 2; }
     section { padding: 5rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4.75rem; }
     .protocol-layout { grid-template-columns: 1fr; gap: 3rem; }
