@@ -1,26 +1,9 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 import "./posi.css";
 
-import { IBM_Plex_Mono, Inter, Syne } from "next/font/google";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
+import { LanguageProvider } from "./i18n/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "Power Stewardship Initiative (POSI)",
@@ -31,14 +14,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${syne.variable} ${plexMono.variable} h-full antialiased`}
-    >
-      <body>{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
