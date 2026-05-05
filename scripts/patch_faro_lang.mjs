@@ -246,6 +246,41 @@ out = out.replace(
   '<div class="lang-menu" role="menu" aria-label="Language">',
 );
 
+// 2d) Ensure order inside `.nav-right`: links -> switcher -> CTA
+{
+  const needleCta =
+    '<a href="https://faro.solondev.com/chat/" class="nav-cta" target="_blank" rel="noopener noreferrer">Launch App</a>';
+  const needleSwitcherStart = '<div class="lang-switcher">';
+  const rightStart = out.indexOf('<div class="nav-right">');
+  const navEnd = rightStart === -1 ? -1 : out.indexOf("</nav>", rightStart);
+
+  if (rightStart !== -1 && navEnd !== -1) {
+    const navBlock = out.slice(rightStart, navEnd);
+    const ctaIndex = navBlock.indexOf(needleCta);
+    const switcherIndex = navBlock.indexOf(needleSwitcherStart);
+
+    if (ctaIndex !== -1 && switcherIndex !== -1 && ctaIndex < switcherIndex) {
+      const switcherEndRel = navBlock.indexOf("</div>", switcherIndex);
+      if (switcherEndRel === -1) {
+        throw new Error("Could not find end of lang-switcher block.");
+      }
+      const switcherBlock = navBlock.slice(
+        switcherIndex,
+        switcherEndRel + "</div>".length,
+      );
+
+      const before = navBlock.slice(0, ctaIndex);
+      const between = navBlock.slice(ctaIndex + needleCta.length, switcherIndex);
+      const after = navBlock.slice(switcherEndRel + "</div>".length);
+
+      const rebuilt =
+        before + switcherBlock + between + needleCta + after;
+
+      out = out.slice(0, rightStart) + rebuilt + out.slice(navEnd);
+    }
+  }
+}
+
 // 3) Add/replace translation script
 {
   const scriptBlock = `
